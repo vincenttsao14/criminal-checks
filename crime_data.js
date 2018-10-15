@@ -1,8 +1,12 @@
-//API endpoint
-https://api.usa.gov/crime/fbi/sapi/{desired_endpiont}?api_key=HAXTadCkitJGnuHi40UxsyMobt04eI2ZtkALlItR
+//List of all API endpoints: https://crime-data-explorer.fr.cloud.gov/api
 
+let fetch = require('node-fetch');
 
-export API_KEY="get your key at https://api.data.gov/signup"
-export CDE_API="https://api.usa.gov/crime/fbi/ucr"
-export PORT=6005
-export THREAT_KEYWORDS='["threat", "words", "here"]''
+fetch('https://api.usa.gov/crime/fbi/sapi/api/agencies?api_key=HAXTadCkitJGnuHi40UxsyMobt04eI2ZtkALlItR').then(response => {
+	return response.json();
+}).then(data => {
+	// console.log(Object.keys(data));
+	console.log(data);
+}).catch(error => {
+	console.log(error);
+});
